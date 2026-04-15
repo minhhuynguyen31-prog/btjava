@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <input type="number" id="numberA"> <input type="number" id="numberB"><br />
+    <button type="button" onclick="calculate('add')">Cộng</button> 
+        <button type="button" onclick="calculate('sub')">Trừ</button> 
+        <button type="button" onclick="calculate('multi')">Nhân</button>
+        <button type="button" onclick="calculate('divi')">Chia</button>
+
+        <div id="resultMessage" style="margin-top: 10px; font-weight: bold;"></div>
+    </form>
+</body>
+
+<script>
+
+   function calculate(type) {
+            // Lấy giá trị từ input mỗi khi nhấn nút
+            let valA = document.getElementById('numberA').value;
+            let valB = document.getElementById('numberB').value;
+            
+            // Chuyển đổi sang số thực
+            let a = parseFloat(valA);
+            let b = parseFloat(valB);
+            
+            // Kiểm tra nếu người dùng chưa nhập số
+            if (isNaN(a) || isNaN(b)) {
+                document.getElementById('resultMessage').innerHTML = 'Vui lòng nhập đủ 2 số!';
+                return;
+            }
+
+            let result = 0;
+            let label = "";
+
+            // Xử lý logic tính toán
+            switch (type) {
+                case 'add':
+                    result = a + b;
+                    label = "Tổng";
+                    break;
+                case 'sub':
+                    result = a - b;
+                    label = "Hiệu";
+                    break;
+                case 'multi':
+                    result = a * b;
+                    label = "Tích";
+                    break;
+                case 'divi':
+                    if (b === 0) {
+                        document.getElementById('resultMessage').innerHTML = 'Không thể chia cho 0!';
+                        return;
+                    }
+                    result = a / b;
+                    label = "Thương";
+                    break;
+            }
+
+            // Hiển thị kết quả
+            document.getElementById('resultMessage').innerHTML = label + ': ' + result.toLocaleString();
+        }
+
+
+</script>
+
+</html>
