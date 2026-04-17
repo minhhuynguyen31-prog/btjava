@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <h1>check day in month</h1>
+        <input type="number" value="input moth" min="1" max="12" id="number">
+        <button type="button" onclick="month()">check</button><br/>
+        <br><h4 id="mess">here is result</h4> 
+
+    </form>
+    <script>
+        function month(){
+            let number = document.getElementById('number').value;
+            switch(number){
+                case number="1":
+                case number="3":
+                case number="5":
+                case number="7":
+                case number="8":
+                case number="10":
+                case number="12":
+                    document.getElementById('mess').innerHTML = "the month have 31 day"
+                    break;
+                case number=4:
+                case number=6:
+                case number=9:
+                case number=11:
+                    document.getElementById('mess').innerHTML = "the month have 30 day"
+                    break;
+                    default:
+                        document.getElementById('mess').innerHTML = "the month have 28 or 29 day"
+                        
+            }
+        }
+        
+
+    </script>
+
+</body>
+</html>

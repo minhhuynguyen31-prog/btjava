@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .puzzle-container {
+        display: flex;
+        /* Xếp 3 ảnh nằm ngang */
+        width: 1000px;
+        /* Tổng chiều rộng của cả bức ảnh lớn */
+        height: 337px;
+        /* Chiều cao của ảnh */
+        border: 2px solid #605b5b;
+    }
+
+    .puzzle-part {
+        width: 200px;
+        /* 600px chia 3 = 200px mỗi mảnh */
+        height: 100%;
+        object-fit: cover;
+        /* Giúp ảnh không bị méo khi cắt */
+        cursor: pointer;
+        border: 1px solid #827f7f;
+        /* Tạo đường kẻ trắng phân chia các mảnh */
+    }
+
+    /* Mảnh 1: Lấy phần bên trái cùng */
+    #img1 {
+        object-position: 0% 0%;
+    }
+
+    /* Mảnh 2: Lấy phần ở giữa */
+    #img2 {
+        object-position: 50% 0%;
+    }
+
+    /* Mảnh 3: Lấy phần bên phải cùng */
+    #img3 {
+        object-position: 100% 0%;
+    }
+</style>
+
+<body>
+    <form action="">
+        <div class="puzzle-container">
+            <img id="img1"
+                src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcMWMLZbyQBTasl65xrW2QIMqwAJT6_qzhTFzBk_60iV9K059FPU56_g6ay2OpLNoKtV1WWXNgTptL-fNqaCO0dAohO4kz_rBwbpZpn9hNQdsmwMS_sFTrmz6HKQZsORdJleeeE2sc6S2OfLh-I6aBmbTwP?key=tE_qip6BHPL4g00JXL_X6Q"
+                data-id="1" onclick="doianh()" class="puzzle-part">
+            <img id="img2"
+                src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcMWMLZbyQBTasl65xrW2QIMqwAJT6_qzhTFzBk_60iV9K059FPU56_g6ay2OpLNoKtV1WWXNgTptL-fNqaCO0dAohO4kz_rBwbpZpn9hNQdsmwMS_sFTrmz6HKQZsORdJleeeE2sc6S2OfLh-I6aBmbTwP?key=tE_qip6BHPL4g00JXL_X6Q"
+                data-id="1" onclick="doianh2()" class="puzzle-part">
+            <img id="img3"
+                src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcMWMLZbyQBTasl65xrW2QIMqwAJT6_qzhTFzBk_60iV9K059FPU56_g6ay2OpLNoKtV1WWXNgTptL-fNqaCO0dAohO4kz_rBwbpZpn9hNQdsmwMS_sFTrmz6HKQZsORdJleeeE2sc6S2OfLh-I6aBmbTwP?key=tE_qip6BHPL4g00JXL_X6Q"
+                data-id="1" onclick="doianh3()" class="puzzle-part">
+        </div>
+
+        <div ></div>
+    </form>
+
+</body>
+<script>
+    function doianh() {
+        let img = document.getElementById("img1");
+
+        // BỔ SUNG DÒNG NÀY: Lấy giá trị data-id hiện tại từ thẻ img
+        let currentId = img.dataset.id;
+        
+        // So sánh với chuỗi "1" (vì data-id trong HTML là chuỗi)
+        if (currentId === "1") {
+            img.src = "https://lh7-rt.googleusercontent.com/docsz/AD_4nXc1vkes45V2RKkhlVjgOXjsegiO3XSzlLikFqv3dp3ptpFluDgXH_qqumfyvi8TkPmZeWG-LW_Lf9ZpingUNRQaq3cimWEacP5mzki8tvkCvgD0bR3771B9btlfO8iVfpRwNwMRDmggDOqJIIYwtBtXtMFh?key=tE_qip6BHPL4g00JXL_X6Q";
+           
+            img.dataset.id = "2";
+        } else {
+            img.src = "https://lh7-rt.googleusercontent.com/docsz/AD_4nXcMWMLZbyQBTasl65xrW2QIMqwAJT6_qzhTFzBk_60iV9K059FPU56_g6ay2OpLNoKtV1WWXNgTptL-fNqaCO0dAohO4kz_rBwbpZpn9hNQdsmwMS_sFTrmz6HKQZsORdJleeeE2sc6S2OfLh-I6aBmbTwP?key=tE_qip6BHPL4g00JXL_X6Q";
+            img.dataset.id = "1";
+        }
+       checkWin();
+    
+    }
+    function doianh2() {
+    
+        let img2 = document.getElementById("img2");
+       
+       
+        let currentId2 = img2.dataset.id;
+    
+
+        // So sánh với chuỗi "1" (vì data-id trong HTML là chuỗi)
+        if (currentId2 === "1") {
+            img2.src = "https://lh7-rt.googleusercontent.com/docsz/AD_4nXc1vkes45V2RKkhlVjgOXjsegiO3XSzlLikFqv3dp3ptpFluDgXH_qqumfyvi8TkPmZeWG-LW_Lf9ZpingUNRQaq3cimWEacP5mzki8tvkCvgD0bR3771B9btlfO8iVfpRwNwMRDmggDOqJIIYwtBtXtMFh?key=tE_qip6BHPL4g00JXL_X6Q";
+           
+            img2.dataset.id = "2";
+        } else {
+            img2.src = "https://lh7-rt.googleusercontent.com/docsz/AD_4nXcMWMLZbyQBTasl65xrW2QIMqwAJT6_qzhTFzBk_60iV9K059FPU56_g6ay2OpLNoKtV1WWXNgTptL-fNqaCO0dAohO4kz_rBwbpZpn9hNQdsmwMS_sFTrmz6HKQZsORdJleeeE2sc6S2OfLh-I6aBmbTwP?key=tE_qip6BHPL4g00JXL_X6Q";
+            img2.dataset.id = "1";
+        }
+       checkWin();
+    
+    }
+      function doianh3() {
+    
+        let img3 = document.getElementById("img3");
+       
+       
+        let currentId3 = img3.dataset.id;
+    
+
+        // So sánh với chuỗi "1" (vì data-id trong HTML là chuỗi)
+        if (currentId3 === "1") {
+            img3.src = "https://lh7-rt.googleusercontent.com/docsz/AD_4nXc1vkes45V2RKkhlVjgOXjsegiO3XSzlLikFqv3dp3ptpFluDgXH_qqumfyvi8TkPmZeWG-LW_Lf9ZpingUNRQaq3cimWEacP5mzki8tvkCvgD0bR3771B9btlfO8iVfpRwNwMRDmggDOqJIIYwtBtXtMFh?key=tE_qip6BHPL4g00JXL_X6Q";
+           
+            img3.dataset.id = "2";
+        } else {
+            img3.src = "https://lh7-rt.googleusercontent.com/docsz/AD_4nXcMWMLZbyQBTasl65xrW2QIMqwAJT6_qzhTFzBk_60iV9K059FPU56_g6ay2OpLNoKtV1WWXNgTptL-fNqaCO0dAohO4kz_rBwbpZpn9hNQdsmwMS_sFTrmz6HKQZsORdJleeeE2sc6S2OfLh-I6aBmbTwP?key=tE_qip6BHPL4g00JXL_X6Q";
+            img3.dataset.id = "1";
+        }
+       checkWin();
+    
+    }
+    function checkWin() {
+    // Lấy data-id của cả 3 ảnh
+    let id1 = document.getElementById("img1").dataset.id;
+    let id2 = document.getElementById("img2").dataset.id;
+    let id3 = document.getElementById("img3").dataset.id;
+
+    // Nếu cả 3 id bằng nhau (cùng là 1 hoặc cùng là 2)
+    if (id1 === id2 && id2 === id3) {
+        // Dùng setTimeout để thông báo hiện ra sau khi ảnh đã kịp đổi trên màn hình
+       
+            alert("Chúc mừng! Bạn đã giải thành công!");
+    }
+}
+   
+    
+   
+
+
+</script>
+
+</html>

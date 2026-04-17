@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .con {
+        text-align: center;
+    }
+
+   
+</style>
+
+<body>
+    <form action="" class="con">
+        <h1>do you love me</h1>
+        <div class="button"><button type="button" onclick="yes()">yes</button>
+            <button type="button" id="button" style="position: absolute;cursor: pointer">no</button>
+        </div>
+
+    </form>
+</body>
+<script>
+    function yes(){
+        alert('<3');
+    }
+
+    const btn = document.getElementById('button');
+
+btn.addEventListener('mouseover', function() {
+    // 1. Tính toán chiều cao và chiều rộng tối đa (trừ đi kích thước nút để không bị văng ra ngoài)
+    const maxX = window.innerWidth - btn.offsetWidth;
+    const maxY = window.innerHeight - btn.offsetHeight;
+
+    // 2. Tạo vị trí ngẫu nhiên
+    const randomX = Math.floor(Math.random() * maxX);
+    const randomY = Math.floor(Math.random() * maxY);
+
+    // 3. Áp dụng vị trí mới cho nút
+    btn.style.left = randomX + 'px';
+    btn.style.top = randomY + 'px';
+});
+</script>
+
+</html>
